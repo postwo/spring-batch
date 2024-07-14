@@ -1,3 +1,4 @@
+#여기서 데이터베이스 무엇을 사용할건지 active에서 설정
 spring:
   profiles:
     active: local
@@ -16,7 +17,7 @@ spring:
       driver-class-name: org.h2.Driver
   batch:
     jdbc:
-      initialize-schema: always
+      initialize-schema: embedded
 
 ---
 
@@ -27,9 +28,9 @@ spring:
   datasource:
     hikari:
       jdbc-url: jdbc:mysql://localhost:3307/batch?serverTimezone=Asia/Seoul
-      username: batch
-      password: cos1234
+      username: ${username}
+      password: ${password}
       driver-class-name: com.mysql.cj.jdbc.Driver
-  batch:
+  batch: # 자동 배치 설정
     jdbc:
-      initialize-schema: always
+      initialize-schema: embedded
