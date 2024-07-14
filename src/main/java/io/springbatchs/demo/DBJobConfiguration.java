@@ -21,9 +21,7 @@ public class DBJobConfiguration {
                 .build();
     }
 
-
-
-
+    
     @Bean
     public Step step1(JobRepository jobRepository, PlatformTransactionManager tx) {
         return new StepBuilder("step1",jobRepository)
